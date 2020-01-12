@@ -1,11 +1,13 @@
+<!--[NGUYEN] use the below command to indicate this template inherit from the base_layout.html file-->
 {% extends 'base_layout.html' %}
 
+<!-- [NGUYEN] remove all common elements, leave the difference and wrap them in the block as below -->
 {% block content %}
     <h1>Article List</h1>
     <div class = "articles">
         {% for article in articles %}
             <div class = "article">
-                <h2><a href = "#">{{ article.title }}</h2>
+                <h2><a href = "{% url 'articles:details' slug=article.slug %}">{{ article.title }}</a></h2>
                 <p>{{ article.snippet }}</p>
                 <p>{{ article.date }}</p>
             </div>
